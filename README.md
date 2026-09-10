@@ -1,2 +1,6 @@
 # STAC-collections
-BMD specific stac collections and items JSON
+BMD STAC
+
+A repo to store collection json and other related scripts. 
+
+
