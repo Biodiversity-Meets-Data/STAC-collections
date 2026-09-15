@@ -1,0 +1,215 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "id": "natura2000-end2024",
+  "collection": "natura2000",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json"
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-32.36805685261701, 24.588732784811935],
+        [34.101485131375114, 24.588732784811935],
+        [34.101485131375114, 70.02586344307312],
+        [-32.36805685261701, 70.02586344307312],
+        [-32.36805685261701, 24.588732784811935]
+      ]
+    ]
+  },
+  "bbox": [-32.36805685261701, 24.588732784811935, 34.101485131375114, 70.02586344307312],
+  "properties": {
+    "start_datetime": "2024-01-01T00:00:00Z",
+    "end_datetime": "2024-12-31T00:00:00Z",
+    "datetime": null,
+    "created": "2026-07-30T11:16:07.346432+00:00",
+    "updated": "2026-09-10T00:00:00Z",
+    "title": "Natura 2000 end-2024",
+    "description": "All 11 layers of the source EEA Natura2000_end2024.gpkg (the boundary-polygon layer plus 10 non-spatial lookup tables: SPECIES, HABITATS, DESIGNATIONSTATUS, HABITATCLASS, BIOREGION, IMPACT, MANAGEMENT, OTHERSPECIES, METADATA, NATURA2000SITES), each exported to its own Parquet/GeoParquet file. Unlike an earlier polygon-only export, this item makes every layer independently accessible, joinable on SITECODE.",
+    "license": "CC-BY-4.0",
+    "sci:doi": "10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+    "sci:citation": "European Environment Agency (2025). Natura 2000 (vector), version end 2024, edition 01.00. Dataset code eea_v_3035_100_k_natura2000_p_2024_v01_r00. https://doi.org/10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+    "processing:lineage": "Exported from the source EEA GeoPackage (Natura2000_end2024.gpkg, dataset code eea_v_3035_100_k_natura2000_p_2024_v01_r00) via the BMD workflow engine, one Parquet file per GeoPackage layer (11 total) rather than a single combined file. The NaturaSite_polygon layer was written with geopandas 1.1.4, with added xmin/ymin/xmax/ymax covering columns for row-group pruning; CRS (EPSG:3035) and geometry are unchanged from source. Verification status: row count (27173) and CRS/bbox for NaturaSite_polygon match an earlier, separately-produced single-layer polygon export that WAS independently verified against the source GeoPackage (row count via pyogrio.read_info(), plus exact attribute/geometry checks on two sites, SITECODE NL3009017 and AT1101112) — but this specific file differs in size from that earlier export (~1008MB vs ~1094MB, consistent with a different geopandas version and the added covering columns), so it has not itself been independently re-verified byte-for-byte. The other 10 non-spatial tables have not yet been independently verified in this process at all; row counts and columns below are as reported by the export pipeline, not independently checked against the source.",
+    "table:primary_geometry": "geometry"
+  },
+  "links": [
+    {
+      "rel": "via",
+      "href": "https://doi.org/10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+      "type": "text/html",
+      "title": "Source dataset DOI"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/natura2000/README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    },
+    {
+      "rel": "agents",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/natura2000/AGENTS.md",
+      "type": "text/markdown",
+      "title": "AI-agent usage guide"
+    }
+  ],
+  "assets": {
+    "BIOREGION": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/BIOREGION.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "BIOREGION",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: BIOREGION",
+      "file:size": 151862,
+      "table:row_count": 29304,
+      "table:columns": ["SITECODE", "BIOGEOGRAPHICREG", "PERCENTAGE"],
+      "roles": ["data", "metadata"]
+    },
+    "DESIGNATIONSTATUS": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/DESIGNATIONSTATUS.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "DESIGNATIONSTATUS",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: DESIGNATIONSTATUS",
+      "file:size": 826219,
+      "table:row_count": 78335,
+      "table:columns": ["SITECODE", "DESIGNATIONCODE", "DESIGNATEDSITENAME", "OVERLAPCODE", "OVERLAPPERC"],
+      "roles": ["data", "metadata"]
+    },
+    "HABITATCLASS": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/HABITATCLASS.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "HABITATCLASS",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: HABITATCLASS",
+      "file:size": 1313860,
+      "table:row_count": 281086,
+      "table:columns": ["DESCRIPTION", "HABITATCODE", "SITECODE", "PERCENTAGECOVER"],
+      "roles": ["data", "metadata"]
+    },
+    "HABITATS": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/HABITATS.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "HABITATS",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: HABITATS",
+      "file:size": 1129369,
+      "table:row_count": 151473,
+      "table:columns": ["COUNTRY_CODE", "SITECODE", "HABITATCODE", "DESCRIPTION", "HABITAT_PRIORITY", "PRIORITY_FORM_HABITAT_TYPE", "NON_PRESENCE_IN_SITE", "COVER_HA", "CAVES", "REPRESENTATIVITY", "RELSURFACE", "CONSERVATION", "GLOBAL", "DATAQUALITY", "PERCENTAGE_COVER", "INTRODUCTION_CANDIDATE"],
+      "roles": ["data", "metadata"]
+    },
+    "IMPACT": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/IMPACT.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "IMPACT",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: IMPACT",
+      "file:size": 817550,
+      "table:row_count": 205551,
+      "table:columns": ["SITECODE", "IMPACTCODE", "DESCRIPTION", "INTENSITY", "POLLUTIONCODE", "OCCURRENCE", "IMPACT_TYPE"],
+      "roles": ["data", "metadata"]
+    },
+    "MANAGEMENT": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/MANAGEMENT.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "MANAGEMENT",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: MANAGEMENT",
+      "file:size": 2328155,
+      "table:row_count": 35533,
+      "table:columns": ["SITECODE", "ORG_NAME", "ORG_EMAIL", "MANAG_CONSERV_MEASURES", "MANAG_PLAN", "MANAG_PLAN_URL", "MANAG_STATUS", "ORG_LOCATORNAME", "ORG_DESIGNATOR", "ORG_ADMINUNIT", "ORG_POSTCODE", "ORG_POSTNAME", "ORG_ADDRESS", "ORG_ADDRESS_UNSTRUCTURED"],
+      "roles": ["data", "metadata"]
+    },
+    "METADATA": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/METADATA.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "METADATA",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: METADATA",
+      "file:size": 1882,
+      "table:row_count": 3,
+      "table:columns": ["parameter", "value"],
+      "roles": ["data", "metadata"]
+    },
+    "NATURA2000SITES": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/NATURA2000SITES.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "NATURA2000SITES",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: NATURA2000SITES",
+      "file:size": 15702898,
+      "table:row_count": 27173,
+      "table:columns": ["COUNTRY_CODE", "SITECODE", "SITENAME", "SITETYPE", "DATE_COMPILATION", "DATE_UPDATE", "DATE_SPA", "SPA_LEGAL_REFERENCE", "DATE_PROP_SCI", "DATE_CONF_SCI", "DATE_SAC", "SAC_LEGAL_REFERENCE", "EXPLANATIONS", "AREAHA", "LENGTHKM", "MARINE_AREA_PERCENTAGE", "DOCUMENTATION", "QUALITY", "DESIGNATION", "OTHERCHARACT", "LATITUDE", "LONGITUDE", "INSPIRE_ID"],
+      "roles": ["data", "metadata"]
+    },
+    "NaturaSite_polygon": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/NaturaSite_polygon.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "NaturaSite_polygon",
+      "description": "Natura 2000 end-2024 GeoParquet layer: NaturaSite_polygon (site boundary polygons, the only spatial layer in this dataset).",
+      "file:size": 1008274017,
+      "table:row_count": 27173,
+      "table:columns": ["SITECODE", "SITENAME", "MS", "SITETYPE", "INSPIRE_ID", "geometry", "xmin", "ymin", "xmax", "ymax"],
+      "proj:epsg": 3035,
+      "geoparquet:metadata": {
+        "primary_column": "geometry",
+        "columns": {
+          "geometry": {
+            "encoding": "WKB",
+            "crs": {
+              "$schema": "https://proj.org/schemas/v0.7/projjson.schema.json",
+              "type": "ProjectedCRS",
+              "name": "ETRS89-extended / LAEA Europe",
+              "id": { "authority": "EPSG", "code": 3035 }
+            },
+            "geometry_types": ["MultiPolygon", "Polygon"],
+            "bbox": [746551.8024000009, 756088.4455000008, 6506126.7641, 5298654.603600002],
+            "covering": {
+              "bbox": {
+                "xmin": ["bbox", "xmin"],
+                "ymin": ["bbox", "ymin"],
+                "xmax": ["bbox", "xmax"],
+                "ymax": ["bbox", "ymax"]
+              }
+            }
+          }
+        },
+        "version": "1.1.0",
+        "creator": { "library": "geopandas", "version": "1.1.4" }
+      },
+      "roles": ["data"]
+    },
+    "OTHERSPECIES": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/OTHERSPECIES.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "OTHERSPECIES",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: OTHERSPECIES",
+      "file:size": 1847695,
+      "table:row_count": 377741,
+      "table:columns": ["COUNTRY_CODE", "SITECODE", "SPECIESGROUP", "SPECIESNAME", "SPECIESCODE", "MOTIVATION", "SENSITIVE", "NONPRESENCEINSITE", "LOWERBOUND", "UPPERBOUND", "ABUNDANCE_CATEGORY", "COUNTING_UNIT", "INTRODUCTION_CANDIDATE"],
+      "roles": ["data", "metadata"]
+    },
+    "SPECIES": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/Natura2000_end2024/SPECIES.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "SPECIES",
+      "description": "Natura 2000 end-2024 non-spatial Parquet table: SPECIES",
+      "file:size": 2254638,
+      "table:row_count": 337157,
+      "table:columns": ["COUNTRY_CODE", "SITECODE", "SPECIESNAME", "SPECIESCODE", "REF_SPGROUP", "SPGROUP", "SENSITIVE", "NONPRESENCEINSITE", "POPULATION_TYPE", "LOWERBOUND", "UPPERBOUND", "COUNTING_UNIT", "ABUNDANCE_CATEGORY", "DATAQUALITY", "POPULATION", "CONSERVATION", "ISOLATION", "GLOBAL", "INTRODUCTION_CANDIDATE"],
+      "roles": ["data", "metadata"]
+    },
+    "metadata_pdf": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/natura2000_metadata.pdf",
+      "type": "application/pdf",
+      "title": "Natura 2000 metadata",
+      "description": "Source metadata document for Natura 2000 end-2024.",
+      "file:size": 328844,
+      "roles": ["metadata", "documentation"]
+    },
+    "license": {
+      "href": "s3://bii-bmd-workflow-engine-production/natura2000/LICENSE",
+      "type": "text/plain",
+      "title": "Natura 2000 license",
+      "description": "License file for the Natura 2000 dataset (CC-BY-4.0).",
+      "roles": ["license", "metadata"],
+      "file:size": 9
+    }
+  }
+}
