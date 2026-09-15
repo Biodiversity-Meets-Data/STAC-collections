@@ -1,0 +1,162 @@
+{
+  "type": "Collection",
+  "id": "natura2000",
+  "stac_version": "1.1.0",
+  "title": "Natura 2000 Sites — Boundary Polygons and related lookup tables (EEA, version end 2024)",
+  "description": "Boundary polygons of all Natura 2000 sites across the EU, designated under the Birds Directive and the Habitats Directive, together with the related non-spatial lookup tables from the same EEA release. This collection is a GeoParquet re-encoding of the European Environment Agency's 'Natura 2000 (vector) — version end 2024' GeoPackage: the `NaturaSite_polygon` boundary layer plus the ten non-spatial tables that join to it on `SITECODE` (SPECIES, HABITATS, DESIGNATIONSTATUS, HABITATCLASS, BIOREGION, IMPACT, MANAGEMENT, OTHERSPECIES, METADATA, NATURA2000SITES) — all 11 GeoPackage layers, each exported to its own Parquet/GeoParquet file and independently accessible. The CRS of the spatial layer (EPSG:3035, ETRS89-extended / LAEA Europe) is unchanged from the source; no reprojection, simplification, or attribute transformation was applied.\n\nThe collection-level schema fields below (`table:columns`, `table:row_count`, `proj:epsg`, `geoparquet:*`) describe the primary `NaturaSite_polygon` layer specifically; the ten lookup tables have their own schemas, documented in the item's assets and in the README linked below.\n\nNote also that per the source metadata, 19 Member States withhold species-site associations for sensitive species from the EEA database entirely — this is a limitation of the upstream data itself, not of this conversion.\n\nPublished as part of an exploration of cloud-native, FAIR distribution patterns for biodiversity spatial data (GeoParquet + STAC + machine-readable provenance), in the spirit of interoperable data space building blocks: persistent identifiers, explicit licensing, and recorded lineage that let both people and software agents establish trust in derived data without re-deriving it themselves. AI/Agent users: see AGENTS.md for field descriptions, query examples, and usage notes.",
+  "keywords": [
+    "natura2000",
+    "protected areas",
+    "biodiversity",
+    "habitats directive",
+    "birds directive",
+    "EEA",
+    "geoparquet",
+    "STAC",
+    "FAIR"
+  ],
+  "license": "CC-BY-4.0",
+  "providers": [
+    {
+      "name": "European Environment Agency (EEA)",
+      "description": "Original data producer and licensor. Integrates and validates Member State submissions annually; published under CC BY 4.0 (https://www.eea.europa.eu/legal/copyright). Copyright holder of record: Directorate-General for Environment (DG ENV), per the source metadata's use constraints. Note: only data held by the competent authorities of the Member States is authentic — this is a derived, general-information copy.",
+      "roles": ["licensor", "producer"],
+      "url": "https://sdi.eea.europa.eu/catalogue/srv/api/records/91357f39-7866-41ce-b447-43905c364ec8",
+      "email": "sdi@eea.europa.eu"
+    },
+    {
+      "name": "Biodiversity Meets Data (BMD) Project",
+      "description": "EU-funded project (WP4) under which this dataset was reused and reformatted as GeoParquet.",
+      "roles": ["processor"],
+      "url": "https://doi.org/10.3030/101181294"
+    },
+    {
+      "name": "Naturalis Biodiversity Center",
+      "description": "Extracted the NaturaSite_polygon layer from the source GeoPackage and re-encoded it as GeoParquet; no attribute or geometry transformation applied beyond format conversion.",
+      "roles": ["processor", "host"],
+      "url": "https://www.naturalis.nl/"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [-32.368056852617, 24.588732784811935, 34.101485131375114, 70.02586344307312]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        ["2024-01-01T00:00:00Z", "2024-12-31T00:00:00Z"]
+      ]
+    }
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/vector/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json"
+  ],
+  "sci:doi": "10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+  "sci:citation": "European Environment Agency (2025). Natura 2000 (vector), version end 2024, edition 01.00. Dataset code eea_v_3035_100_k_natura2000_p_2024_v01_r00. https://doi.org/10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+  "proj:epsg": 3035,
+  "table:primary_geometry": "geometry",
+  "table:row_count": 27173,
+  "table:columns": [
+    {
+      "name": "SITECODE",
+      "type": "string",
+      "description": "Persistent EU site identifier (e.g. 'NL3009017'), unique per Natura 2000 site. Join key to the non-spatial tables in the source GeoPackage (SPECIES, HABITATS, DESIGNATIONSTATUS, ...)."
+    },
+    {
+      "name": "SITENAME",
+      "type": "string",
+      "description": "Official site name, generally in the national language of the designating Member State."
+    },
+    {
+      "name": "MS",
+      "type": "string",
+      "description": "Two-letter Member State abbreviation of the designating country (e.g. 'NL', 'AT')."
+    },
+    {
+      "name": "SITETYPE",
+      "type": "string",
+      "description": "Designation-status code. A/D/F/H/J = Birds Directive (SPA) only; B/E/G/I/K = Habitats Directive (SCI/SAC) only; C = both directives overlapping. Source: EEA Natura2000 feature service field domain."
+    },
+    {
+      "name": "INSPIRE_ID",
+      "type": "string",
+      "description": "INSPIRE identifier URI for the site, where assigned by the Member State; frequently blank in this release."
+    },
+    {
+      "name": "geometry",
+      "type": "binary",
+      "description": "Site boundary geometry in EPSG:3035 (ETRS89-extended / LAEA Europe), WKB-encoded."
+    }
+  ],
+  "geoparquet:geometry_type": ["Polygon", "MultiPolygon"],
+  "geoparquet:feature_count": 27173,
+  "vector:geometry_types": ["Polygon", "MultiPolygon"],
+  "processing:lineage": "Downloaded 'Natura2000_end2024.gpkg' from the EEA SDI datastore (eea_v_3035_100_k_natura2000_p_2024_v01_r00). Read the 'NaturaSite_polygon' layer with geopandas.read_file(path, layer='NaturaSite_polygon') and wrote it directly to GeoParquet with GeoDataFrame.to_parquet() — no reprojection, filtering, or attribute changes. Verified against the source by: (1) asserting the parquet row count (27173) equals the feature count reported by pyogrio.read_info() for the same layer; (2) two independent site-level spot checks (SITECODE NL3009017 'Veluwe' and AT1101112 'Nickelsdorfer Haidel') confirming exact attribute equality and exact + topological geometry equality (bounds and area identical) between the source layer and the parquet output.",
+  "processing:level": "L1",
+  "processing:facility": "Naturalis Biodiversity Center",
+  "processing:software": {
+    "geopandas": "1.0.1",
+    "pyarrow": "20.0.0",
+    "pyogrio": "0.10.0",
+    "gdal": "3.9.1"
+  },
+  "links": [
+    {
+      "rel": "via",
+      "href": "https://sdi.eea.europa.eu/catalogue/srv/api/records/91357f39-7866-41ce-b447-43905c364ec8",
+      "type": "text/html",
+      "title": "EEA SDI catalogue record: Natura 2000 (vector) — version end 2024"
+    },
+    {
+      "rel": "via",
+      "href": "https://doi.org/10.2909/91357f39-7866-41ce-b447-43905c364ec8",
+      "type": "text/html",
+      "title": "Persistent DOI for the source dataset"
+    },
+    {
+      "rel": "via",
+      "href": "https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_3035_100_k_natura2000_p_2024_v01_r00",
+      "type": "application/geopackage+sqlite3",
+      "title": "Source GeoPackage download (EEA datastore)"
+    },
+    {
+      "rel": "via",
+      "href": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Species/MapServer",
+      "type": "application/json",
+      "title": "EEA REST service: Natura 2000 species (live-updating; may differ from the static SPECIES/OTHERSPECIES tables in this release)"
+    },
+    {
+      "rel": "via",
+      "href": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Habitats/MapServer",
+      "type": "application/json",
+      "title": "EEA REST service: Natura 2000 habitats (live-updating; may differ from the static HABITATS/HABITATCLASS tables in this release)"
+    },
+    {
+      "rel": "license",
+      "href": "https://www.eea.europa.eu/legal/copyright",
+      "type": "text/html",
+      "title": "EEA copyright and reuse policy (CC BY 4.0)"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/natura2000/README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    },
+    {
+      "rel": "agents",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/natura2000/AGENTS.md",
+      "type": "text/markdown",
+      "title": "AI-agent usage guide"
+    }
+  ],
+  "summaries": {
+    "geoparquet:geometry_type": ["Polygon", "MultiPolygon"]
+  }
+}
