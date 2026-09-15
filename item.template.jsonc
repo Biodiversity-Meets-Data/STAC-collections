@@ -1,0 +1,77 @@
+// ============================================================================
+// STAC ITEM — skeleton / template
+// ============================================================================
+// JSONC (JSON + comments). strip comments and fill in every
+// <PLACEHOLDER> before use. Per the Core rule in README.md: operational
+// metadata (checksum, file size, auth scheme, endpoint) stays here on the
+// Item; license, provenance, and rich description live outside STAC and are
+// referenced via links, not embedded.
+//
+// Field tiers match README.md and collection.template.jsonc:
+//   [REQUIRED] / [RECOMMENDED] / [OPTIONAL] — unmarked = plain STAC structure.
+//
+// Note: plain JSON forbids trailing commas. When you uncomment an optional
+// field, check whether the line above it now needs a comma added (or the
+// uncommented line itself needs one removed if it's now last in its object).
+// ============================================================================
+{
+  // [REQUIRED — STAC core] Always "Feature" (Items are GeoJSON Features).
+  "type": "Feature",
+  "stac_version": "1.0.0",
+
+  // [OPTIONAL, but REQUIRED the moment you use a namespaced field below]
+  "stac_extensions": [
+    // "https://stac-extensions.github.io/file/v2.1.0/schema.json"
+  ],
+
+  // [REQUIRED — STAC core] Unique id, and the parent Collection it belongs to.
+  "id": "<item-id>",
+  "collection": "<parent collection id>",
+
+  // [REQUIRED — STAC core] WGS84 geometry, or null for non-spatial data (see
+  // the checklistbank-species-lists example in README.md's appendix).
+  "geometry": null,
+
+  // [REQUIRED — STAC core if geometry is not null; omit/null if geometry is
+  // null] [west, south, east, north] in WGS84.
+  "bbox": null,
+
+  "properties": {
+    // [REQUIRED — STAC core] RFC 3339 datetime, or null if using the
+    // start_datetime/end_datetime pair instead.
+    "datetime": "<2024-01-01T00:00:00Z, or null>"
+    // "start_datetime": "<RFC 3339>",
+    // "end_datetime": "<RFC 3339>",
+  },
+
+  // [REQUIRED — STAC core] root/collection/self are rewritten by a STAC API
+  // server; derived_from is not — use an absolute URL (see Pitfalls).
+  "links": [
+    { "rel": "root", "href": "<catalog root URL>", "type": "application/json" },
+    { "rel": "collection", "href": "<parent collection URL>", "type": "application/json" },
+    { "rel": "self", "href": "<this item's own URL>", "type": "application/json" },
+
+    // [REQUIRED] Provenance — link back to the exact source this Item was
+    // derived from, so a consumer can trace it upstream.
+    { "rel": "derived_from", "href": "<source dataset/service URL>", "type": "text/html" }
+
+    // Only repeat describedby/agents/license here if this Item's story
+    // genuinely differs from its Collection's — otherwise those belong once,
+    // on the Collection, not duplicated on every Item.
+  ],
+
+  // [REQUIRED — STAC core] At least one asset: the actual payload link(s).
+  "assets": {
+    "data": {
+      "href": "<s3://... or https://... direct link to the payload>",
+      "type": "<media type, e.g. application/x-parquet, image/tiff; application=geotiff>",
+      "roles": [ "data" ]
+
+      // [OPTIONAL] Integrity checks — must match the exact bytes of the file
+      // actually linked above, not a similar or older build of it. Needs the
+      // `file` extension declared above.
+      // "file:size": 0,
+      // "file:checksum": "<multihash of these exact bytes>"
+    }
+  }
+}

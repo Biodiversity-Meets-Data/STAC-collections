@@ -1,0 +1,105 @@
+// ============================================================================
+// STAC COLLECTION — skeleton / template
+// ============================================================================
+// This is JSONC (JSON + comments). It is
+// NOT meant to be fed to a STAC server or validator as-is: strip the comments
+// and replace every <PLACEHOLDER> first. For a real, spec-valid example that
+// you can actually test in a STAC Browser, see the Natura2000 collection. 
+//
+// Field tiers, matching README.md:
+//   [REQUIRED]    must be present.
+//   [RECOMMENDED] This is for project's own FAIR/Data Space interests, even
+//                 though bare STAC doesn't mandate it (see README.md).
+//   [OPTIONAL]    nice to have, or only relevant sometimes.
+// Unmarked fields are plain STAC core structure (type, extent shape, etc.).
+//
+// Note: plain JSON forbids trailing commas. When you uncomment an optional
+// field, check whether the line above it now needs a comma added (or the
+// uncommented line itself needs one removed if it's now last in its object).
+// ============================================================================
+{
+  // [REQUIRED — STAC core] Always "Collection".
+  "type": "Collection",
+
+  // [REQUIRED — STAC core] STAC version this document conforms to.
+  "stac_version": "1.0.0",
+
+  // [OPTIONAL, but REQUIRED the moment you use one of the namespaced fields
+  // below] Declare the schema URL for every extension you use (sci:,
+  // processing:, file:, proj:, table:, ...). See Pitfalls in README.md.
+  "stac_extensions": [
+    // "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    // "https://stac-extensions.github.io/processing/v1.1.0/schema.json"
+  ],
+
+  // [REQUIRED — STAC core] Unique, stable, URL/filename-safe id.
+  "id": "<collection-id>",
+
+  // [REQUIRED — STAC core] What is this data, and why does it exist as a
+  // STAC collection? One or two sentences.
+  "description": "<short description of the collection's contents and purpose>",
+
+  // [REQUIRED] SPDX id (e.g. "CC-BY-4.0"), or "other" plus a `license` link
+  // below to the real terms. Not a placeholder with no context.
+  "license": "<SPDX-id-or-'other'>",
+
+  // [REQUIRED — STAC core] Spatial and temporal bounds this collection covers.
+  "extent": {
+    "spatial": {
+      // [-west, south, east, north] in WGS84. One array per disjoint region.
+      "bbox": [ [ -180.0, -90.0, 180.0, 90.0 ] ]
+    },
+    "temporal": {
+      // [start, end] as RFC 3339 datetimes; null = open-ended.
+      "interval": [ [ "2024-01-01T00:00:00Z", null ] ]
+    }
+  },
+
+  // [REQUIRED] Distinct roles for source producer/licensor vs. current
+  // processor/host, in provenance order. See README.md's 3-party worked
+  // example (EEA -> ChecklistBank -> BMD).
+  "providers": [
+    {
+      "name": "<original data creator / licensor>",
+      "roles": [ "producer", "licensor" ],
+      "url": "<https://... their site or metadata record>"
+    },
+    {
+      "name": "<who re-packaged/hosts this catalog entry, e.g. your project>",
+      "roles": [ "processor", "host" ],
+      "url": "<https://...>"
+    }
+  ],
+
+  // [RECOMMENDED] Attribution and an unambiguous pointer to the exact source
+  // version. Needs the `scientific` extension declared above.
+  // "sci:doi": "<10.xxxx/...>",
+  // "sci:citation": "<full citation string, including version/edition>",
+
+  // [RECOMMENDED] What was done to the data, and what was actually verified
+  // (or "not yet verified"). Needs the `processing` extension declared above.
+  // "processing:lineage": "<method used, and how it was checked>",
+
+  // [REQUIRED — STAC core] root/self/parent are rewritten by a STAC API
+  // server; describedby/agents/license/via/derived_from are NOT — always use
+  // absolute URLs for those (see Pitfalls in README.md).
+  "links": [
+    { "rel": "root", "href": "<catalog root URL>", "type": "application/json" },
+    { "rel": "self", "href": "<this collection's own URL>", "type": "application/json" },
+
+    // [REQUIRED] Link to source — via or derived_from, ideally a DOI.
+    { "rel": "via", "href": "<https://doi.org/... or source URL>", "type": "text/html" },
+
+    // [RECOMMENDED] Human docs and agent-facing docs, as separate markdown
+    // files — absolute URLs, not embedded JSON.
+    { "rel": "describedby", "href": "<absolute raw GitHub URL to README.md>", "type": "text/markdown" },
+    { "rel": "agents", "href": "<absolute raw GitHub URL to AGENTS.md>", "type": "text/markdown" },
+
+    // [REQUIRED if license above is not a bare SPDX id] Link to actual terms.
+    { "rel": "license", "href": "<https://... license terms>", "type": "text/html" }
+  ]
+
+  // No "assets" here on purpose: per README.md, if this Collection has
+  // exactly one Item, point to the Item instead of re-describing its asset
+  // at both levels.
+}
