@@ -1,0 +1,54 @@
+{
+  "type": "Collection",
+  "id": "checklistbank",
+  "stac_version": "1.1.0",
+  "description": "ChecklistBank-derived species lists and policy annex tables.",
+  "title": "ChecklistBank species lists",
+  "license": "proprietary",
+  "providers": [
+    {
+      "name": "The European Environment Agency (EEA)",
+      "roles": ["licensor", "producer"], 
+      "email": "sdi@eea.europa.eu"
+    },
+    {
+      "name": "ChecklistBank",
+      "roles": ["publisher"],
+      "url": "https://api.checklistbank.org"
+    },
+    {
+      "name": "BMD Project",
+      "roles": ["processor", "host"],
+      "url": "https://doi.org/10.3030/101181294"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [-180.0, -90.0, 180.0, 90.0]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [null, null]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "via",
+      "href": "https://www.checklistbank.org/dataset/315631/metadata",
+      "type": "text/html"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/checklistbank/README.md",
+      "type": "text/markdown"
+    },
+    {
+      "rel": "agents",
+      "href": "https://raw.githubusercontent.com/Biodiversity-Meets-Data/STAC-collections/refs/heads/main/checklistbank/AGENTS.md",
+      "type": "text/markdown"
+    }
+  ]
+}
