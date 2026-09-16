@@ -19,7 +19,6 @@ Per the [DSSC Blueprint](https://archive.dssc.eu/space/Glossary/176554052/2.+Cor
 Operational metadata (checksum, file size, auth scheme, endpoint) idally stays on the Item as these are fetched programmatically. 
 
 
-
 ## Collection / Item fields
 
 ### Required
@@ -156,7 +155,9 @@ Commit the Collection/Item JSON into this repo too, mirroring the layout:
     collections/natura2000/items/*.json
     collections/checklistbank/collection.json
     collections/checklistbank/items/*.json
-  
+
+More on how to implement git-backed-catalog: 
+https://github.com/portolan-sdi/portolan-spec/blob/v0.2.0/specs/best-practices/git-backed-catalogs.md
 
 ## Test in a browser
 
