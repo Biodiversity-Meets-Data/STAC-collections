@@ -1,0 +1,174 @@
+{
+  "type": "Collection",
+  "id": "soilgrids_collection_1000m",
+  "stac_version": "1.1.0",
+  "description": "\n SoilGrids is a system for global digital soil mapping that uses state-of-the-art machine learning methods to map the spatial distribution of soil properties across the globe. SoilGrids prediction models are fitted using over 230,000 soil profile observations from the WoSIS database and a series of environmental covariates. Covariates were selected from a pool of over 400 environmental layers from Earth observation derived products and other environmental information including climate, land cover, and terrain morphology. The outputs of SoilGrids are global soil property maps at six standard depth intervals at a spatial resolution of 250 meters.\n ",
+  "links": [
+    {
+      "rel": "via",
+      "href": "https://isric.org/",
+      "type": "text/html"
+    },
+    {
+      "rel": "via",
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated",
+      "type": "text/html"
+    },
+    {
+      "rel": "via",
+      "href": "https://metadatacatalogue.lifewatch.eu/srv/api/records?uuid=8315df49-bde3-4138-8f71-9b722f3afd06",
+      "type": "text/html"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/",
+      "type": "text/html",
+      "title": "Creative Commons"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
+  ],
+  "sci:citation": " Poggio, L., de Sousa, L. M., Batjes, N. H., Heuvelink, G. B. M., Kempen, B., Ribeiro, E., and Rossiter, D.: SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty, SOIL, 7, 217?240, 2021. https://doi.org/10.5194/soil-7-217-2021 ",
+  "title": "SoilGrids ? global gridded soil information",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -179.77911370816287,
+          -55.98232503302354,
+          179.56061669726006,
+          82.71928405344526
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1905-04-01T00:00:00Z",
+          "2016-07-05T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "Creative Commons",
+  "keywords": [
+    "cec",
+    "cfvo",
+    "clay",
+    "nitrogen",
+    "wv0033",
+    "sand",
+    "Soil",
+    "wv1500",
+    "phh2o",
+    "soilgrids",
+    "soc",
+    "wv0010",
+    "bdod",
+    "silt",
+    "ocd",
+    "Digital soil mapping",
+    "aggregated",
+    "ocs",
+    "1000"
+  ],
+  "providers": [
+    {
+      "name": "Poggio Laura",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0003-1892-0764",
+      "email": "laura.poggio@wur.nl"
+    },
+    {
+      "name": "de Sousa Luis M.",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0002-5851-2071",
+      "email": "luis.moreira.de.sousa@tecnico.ulisboa.pt"
+    },
+    {
+      "name": "Batjes Niels H.",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0003-2367-3067",
+      "email": "niels.batjes@isric.org"
+    },
+    {
+      "name": "Heuvelink Gerard B. M.",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0003-0959-9358",
+      "email": "gerard.heuvelink@isric.org"
+    },
+    {
+      "name": "Kempen Bas",
+      "roles": [
+        "producer"
+      ],
+      "url": "",
+      "email": "bas.kempen@isric.org"
+    },
+    {
+      "name": "Ribeiro Eloi",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0002-2324-3000",
+      "email": "eloi.ribeiro@isric.org"
+    },
+    {
+      "name": "Rossiter David",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://orcid.org/0000-0003-4558-1286",
+      "email": "david.rossiter@isric.org"
+    },
+    {
+      "name": "ISRIC - World Soil Information",
+      "roles": [
+        "producer",
+        "licensor",
+        "host"
+      ],
+      "email": "soilgrids@isric.org"
+    },
+    {
+      "name": "Biodiversity Meets Data (BMD) Project",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://doi.org/10.3030/101181294"
+    },
+    {
+      "name": "LifeWatch ERIC Metadata Catalogue",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://metadatacatalogue.lifewatch.eu"
+    },
+    {
+      "name": "Bortoluzzi Chiara",
+      "roles": [
+        "processor"
+      ],
+      "url": "https://orcid.org/0000-0001-6589-6635",
+      "email": "chiara.bortoluzzi@sib.swiss"
+    },
+    {
+      "name": "Swiss Institute of Bioinformatics",
+      "roles": [
+        "processor"
+      ],
+      "url": "https://www.sib.swiss"
+    }
+  ]
+}
