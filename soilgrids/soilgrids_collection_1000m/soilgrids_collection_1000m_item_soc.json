@@ -1,0 +1,151 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+  ],
+  "id": "soilgrids_collection_1000m_item_soc",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -179.77911370816287,
+          -55.982325033023535
+        ],
+        [
+          -179.77911370816287,
+          82.71928405344526
+        ],
+        [
+          179.56061669726006,
+          82.71928405344526
+        ],
+        [
+          179.56061669726006,
+          -55.982325033023535
+        ],
+        [
+          -179.77911370816287,
+          -55.982325033023535
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -179.77911370816287,
+    -55.982325033023535,
+    179.56061669726006,
+    82.71928405344526
+  ],
+  "properties": {
+    "soilgrids:variable": "soc",
+    "start_datetime": "1905-04-01T00:00:00Z",
+    "end_datetime": "2016-07-05T00:00:00Z",
+    "datetime": "1905-04-01T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "via",
+      "href": "https://isric.org/",
+      "type": "text/html"
+    },
+    {
+      "rel": "via",
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated",
+      "type": "text/html"
+    },
+    {
+      "rel": "via",
+      "href": "https://metadatacatalogue.lifewatch.eu/srv/api/records?uuid=8315df49-bde3-4138-8f71-9b722f3afd06",
+      "type": "text/html"
+    }
+  ],
+  "assets": {
+    "soc_0-5cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_0-5cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_0-5cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "0-5cm",
+          "description": "0-5cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "soc_5-15cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_5-15cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_5-15cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "5-15cm",
+          "description": "5-15cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "soc_15-30cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_15-30cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_15-30cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "15-30cm",
+          "description": "15-30cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "soc_30-60cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_30-60cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_30-60cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "30-60cm",
+          "description": "30-60cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "soc_60-100cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_60-100cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_60-100cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "60-100cm",
+          "description": "60-100cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "soc_100-200cm_mean_1000": {
+      "href": "https://files.isric.org/soilgrids/latest/data_aggregated/1000m/soc/soc_100-200cm_mean_1000.tif",
+      "type": "image/tiff; application=geotiff",
+      "title": "soc_100-200cm_mean_1000",
+      "eo:bands": [
+        {
+          "name": "100-200cm",
+          "description": "100-200cm"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "soilgrids_collection_1000m"
+}
