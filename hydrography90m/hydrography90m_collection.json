@@ -1,0 +1,64 @@
+{
+  "type": "Collection",
+  "id": "hydrography90m",
+  "stac_version": "1.1.0",
+  "description": "Hydrography 90m dataset",
+  "links": [
+    {
+      "rel": "root",
+      "href": "https://bmd-stac.dryrun.link/collections/hydrography90m",
+      "type": "application/json",
+      "title": "Hydrography 90m"
+    },
+    {
+      "rel": "item",
+      "href": "https://bmd-stac.dryrun.link/collections/hydrography90m/items/Hydrography90m",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "self",
+      "href": "https://bmd-stac.dryrun.link/collections/hydrography90m",
+      "type": "application/json"
+    }
+  ],
+  "title": "Hydrography 90m",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -24.599999999999998,
+          34.599999999999994,
+          35.650000000000006,
+          72.0
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-NC-4.0",
+  "providers": [
+    {
+      "name": "Leibniz Institute of Freshwater Ecology and Inland Fisheries (IGB)",
+      "roles": [
+        "licensor",
+        "producer"
+      ],
+      "url": "https://www.igb-berlin.de/"
+    },
+    {
+      "name": "Biodiversity Meets Data (BMD) Project",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://doi.org/10.3030/101181294"
+    }
+  ]
+}
