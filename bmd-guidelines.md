@@ -26,6 +26,7 @@ Operational metadata (checksum, file size, auth scheme, endpoint) idally stays o
 - `license` — SPDX id (`CC-BY-4.0`) or a `license` link to actual terms. Not a placeholder.
 - `providers` — distinct roles for source producer/licensor vs. processor/host, in provenance order. Chains can run longer than two or three parties (see the ChecklistBank worked example) — order still matters even when it does.
 - Link to source — `derived_from` or `via`, pointing to the original dataset, ideally a DOI. **If an Item aggregates data from many source datasets, don't force a single link to one of them**. See Pitfalls below.
+- `bmd:curator_names` - Name (Institution) for the BMD managing and contributing the dataset.
 
 ### Recommended
 
